@@ -110,3 +110,14 @@ article{
     padding: 50px;
     background-color:thistle;
 }
+
+.rick{
+    display: flex;
+    justify-content: flex-start;    
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
