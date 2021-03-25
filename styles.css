@@ -9,6 +9,10 @@ body{
     font-family: 'Cabin', sans-serif;;
 }
 
+h1, h2, h3, h4{
+    font-family: 'Permanent Marker', cursive;
+}
+
 header{
     background-color: #F2AE49;
 }
@@ -62,6 +66,7 @@ h1, p{
 article{
     margin: 20px;
 }
+
 
 .control{
     display: flex;
