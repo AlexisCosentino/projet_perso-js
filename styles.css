@@ -1,0 +1,107 @@
+html{
+    margin: 0;
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    background-color: #E1E1E1;
+    font-family: 'Cabin', sans-serif;;
+}
+
+header{
+    background-color: #F2AE49;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    padding: 0 8%;
+}
+
+nav ul{
+    list-style: none;
+}
+
+.logo{
+    padding-right: 20px ;
+    height: auto;
+    width: 300px;
+}
+
+footer{
+    background-color: #B2B2B2;
+    display: flex;
+    justify-content: center;
+}
+
+footer p{
+    padding: 20px 0;
+}
+
+article{
+    background-color: white;
+    border: solid black 1px;
+    padding: 10px 50px;
+    border-radius: 5px;
+
+}
+
+.text-center{
+    text-align: center;
+}
+
+h1, p{
+    padding: 10px 0;
+}
+
+article{
+    margin: 20px;
+}
+
+.control{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.control a img{
+    height: 50px;
+    width: auto;
+    padding: 20px;
+}
+
+.gallery{
+    height: 300px;
+    width: auto;
+    padding: 20px;
+}
+
+.score{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+.borderScore{
+    display: flex;
+    justify-content: space-around;
+    border: solid red 2px;
+    width: 150px;
+}
+
+.chifoumi{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0;
+}
+
+.gameItem{
+    width: 150px;
+    height: auto;
+    border-radius: 100%;
+    padding: 50px;
+    background-color:thistle;
+}
