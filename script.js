@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     });
 
-    
+
 
     $.get("https://rickandmortyapi.com/api/character/[1,2,3,4,5]", function (object) {
         object.forEach(function (item) {
@@ -35,7 +35,28 @@ $(document).ready(function () {
 
     });
 
+    //DROPDOWN MENU
+    $(".dropbtn").click(function () {
+
+        let click = document.getElementById("list-items");
+        if (click.style.display === "none") {
+            click.style.display = "block";
+        } else {
+            click.style.display = "none";
+        }
+    })
 
 });
 
+/*
+$(".dropbtn").click(function () {
+
+        let click = document.getElementById("list-items");
+        if (click.style.display === "none") {
+            click.style.display = "block";
+        } else {
+            click.style.display = "none";
+        }
+    })
+    */
 
