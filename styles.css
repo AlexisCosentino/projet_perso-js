@@ -5,7 +5,9 @@ html{
 
 body{
     margin: 0;
-    background-color: #E1E1E1;
+    /*background-color: #E1E1E1;*/
+    background-image: url('img/rick-bg.jpg');
+    background-blend-mode: soft-light;
     font-family: 'Cabin', sans-serif;;
 }
 
@@ -48,11 +50,22 @@ footer p{
 }
 
 article{
-    background-color: rgba(255, 255, 255, 0.836);
-    border: solid black 1px;
+    background-color: rgba(255, 255, 255, 0.007);
+    border: solid white 1px;
     padding: 10px 50px;
     border-radius: 5px;
     margin: 20px 0;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.glasseffect{
+    background-color: rgba(255, 255, 255, 0.007);
+    border: solid white 1px;
+    padding: 10px 50px;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .text-center{
@@ -123,4 +136,10 @@ h1, p{
     display: flex;
     flex-direction: column;
     padding: 0 20px;
+}
+
+.fotorama{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
