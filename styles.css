@@ -48,11 +48,11 @@ footer p{
 }
 
 article{
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.836);
     border: solid black 1px;
     padding: 10px 50px;
     border-radius: 5px;
-
+    margin: 20px 0;
 }
 
 .text-center{
@@ -63,9 +63,6 @@ h1, p{
     padding: 10px 0;
 }
 
-article{
-    margin: 20px;
-}
 
 
 .control{
@@ -111,11 +108,17 @@ article{
     background-color:thistle;
 }
 
+
 .rick{
-    display: flex;
-    justify-content: flex-start;    
+    width: 300px;
 }
 
+.append{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;  
+    justify-content: space-around;
+}
 .col{
     display: flex;
     flex-direction: column;

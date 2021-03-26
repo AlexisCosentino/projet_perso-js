@@ -23,13 +23,15 @@ $(document).ready(function(){
 
     */
 
-    
+    a = Array.from({length: 19}, () => Math.floor(Math.random() * 600))
 
-    $.get("https://rickandmortyapi.com/api/character/[1,2,3,4,5,6,7,8,9,10]", function(object){
+    console.log(a)
+
+    $.get("https://rickandmortyapi.com/api/character/["+a+"]", function(object){
         console.log(object);
         object.forEach(function(item){
             $("<article class='rick'>\
-                <img src='' alt=''>\
+                <img src='"+item.image+"' alt=''>\
                 <div class='col'>\
                 <h2> Nom = "+ item.name +" </h2>\
                 <p> Espèce = " + item.species +"</p>\
@@ -37,11 +39,26 @@ $(document).ready(function(){
                 <p> Planète d'origine = " + item.origin.name +"</p>\
                 </div>\
             ").appendTo(".append");
-            $("article img").attr('src', item.image);
-
         })
 
     });
+
+    $.get("https://rickandmortyapi.com/api/character/[1,2,3,4,5]", function(object){
+        console.log(object);
+        object.forEach(function(item){
+            $("<article class='rick'>\
+                <img src='"+item.image+"' alt=''>\
+                <div class='col'>\
+                <h2> Nom = "+ item.name +" </h2>\
+                <p> Espèce = " + item.species +"</p>\
+                <p> Genre = " + item.gender +"</p>\
+                <p> Planète d'origine = " + item.origin.name +"</p>\
+                </div>\
+            ").appendTo(".append");
+        })
+
+    });
+
 
 });
 
