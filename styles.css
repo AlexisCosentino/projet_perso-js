@@ -176,7 +176,26 @@ h1, p{
   .dropdown-content nav ul li a {
     color: black;
     padding: 12px 16px;
-text-decoration: none;
-display: block;
+    text-decoration: none;
+    display: block;
 }
 
+/* FIN DU MENU DROPDOWN*/
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.firstform{
+    width: 500px;
+}
+
+.secondform{
+    width: 800px;
+}
+
+form button{
+    width: fit-content;
+    padding: 10px 20px;
+}
