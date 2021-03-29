@@ -83,14 +83,21 @@ h1, p{
     justify-content: flex-start;
 }
 
-.control a img{
+.control a img, .control img{
     height: 50px;
     width: auto;
     padding: 20px;
 }
 
+.imageGallery{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .gallery{
-    height: 300px;
+    height: auto;
     width: auto;
     padding: 20px;
 }
@@ -195,7 +202,20 @@ form{
     width: 800px;
 }
 
+/* FORMULAIRE CSS !!! */
+
 form button{
     width: fit-content;
     padding: 10px 20px;
+    border-radius: 5px;
+}
+
+form button:hover{
+    background-color: #F2AE49;
+}
+
+form input{
+    padding: 8px 0;
+    margin: 10px 0;
+    border-radius: 5px;
 }
