@@ -115,9 +115,51 @@ $(document).ready(function () {
     })
 
 
-    //SUPPRIMER UNE IMAGE OU ARTICLE QUI A ETE AJOUTE
+
+    //LE JEU DU SHIFOURICK !!!!
 
    
+    let playerScore = 0;
+    let computerScore = 0;
+
+    $(".playerScore").text(playerScore);
+    $(".computerScore").text(computerScore);
+
+    function getComputerChoice(){
+        let input = ['rick', 'dog', 'cornichon'];
+        let choice = input[Math.floor(Math.random() * 3)]
+        return choice
+    }
+
+    function findWinner(player, computer){
+        if (player == 'rick' && computer == 'cornichon' || player == 'cornichon' && computer == 'dog' || player == 'dog' && computer == 'rick'){
+            $(".answer").text('Tu as gagné mon gars !');
+            $('.gif').attr('src', 'img/win.gif')
+            playerScore++
+            $(".playerScore").text(playerScore);
+        }
+        else if (player === computer){
+            $(".answer").text("Merde c'est égalité..");
+            $('.gif').attr('src', 'img/tied.gif')
+        } else {
+            $(".anwser").text("Putain comme t'es nul Morty, tu as perdu !");
+            $('.gif').attr('src', 'img/lose.gif')
+            computerScore++;
+            $(".computerScore").text(computerScore);
+
+        }
+    }
+
+
+    $('.gameItem').click(function(){
+        let playerChoice = $(this).attr('alt');
+        let computerChoice = getComputerChoice()
+        console.log(playerChoice)
+        console.log(computerChoice)
+        findWinner(playerChoice, computerChoice)
+    })
+
+
 
 
 
