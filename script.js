@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+
+
+    //RECUPERER OBJET API AVEC FONCTION RANDOM POUR OBTENIIR DES ID ENTRE 0 ET 600
+
     a = Array.from({ length: 19 }, () => Math.floor(Math.random() * 600))
 
 
@@ -19,6 +23,7 @@ $(document).ready(function () {
     });
 
 
+    //RECUPERER OBJET API EN CHOISISSANT LES IDS QUE JE VEUX
 
     $.get("https://rickandmortyapi.com/api/character/[1,2,3,4,5]", function (object) {
         object.forEach(function (item) {
@@ -51,13 +56,19 @@ $(document).ready(function () {
 
     $(".formbtn").click(function(){
         let datas = [$(".firstform").val(), $(".secondform").val(), $(".thirdform").val()]
-        console.log(datas[0])
         $("<article class='rick'>\
+        <img class='control delete' src='img/delete.svg'>\
         <h3>"+ datas[0] +"</h3>\
-        <p>" + datas[3] + "</p>\
+        <p>" + datas[1] + "</p>\
         <p> Auteur : " + datas[2] + "</p>\
         </article>\
-        ").insertAfter(("form"));
+        ").insertAfter((".form-article"));
+
+        //SUPPRIMER UN ARTICLE QUI A ETE AJOUTE
+
+        $('.delete').click(function(){
+            $(this).parent('article').remove();
+        })
     })
 
 
@@ -75,9 +86,20 @@ $(document).ready(function () {
 
         $(".addImage").click(function(){
             let url= $('.imageUrl').val()
-            console.log(url);
-            $("<img src='"+ url +"' class='gallery'>").appendTo((".imageGallery"));
+            $("<div class='deletePosition'>\
+            <img class='control delete' src='img/delete.svg'>\
+            <img src='"+ url +"' class='gallery'>\
+            </div>\
+            ").appendTo((".imageGallery"));
+
+
+            //SUPPRIMER UNE PHOTO QUI A ETE AJOUTE
+
+            $(".delete").click(function(){
+                $(this).parent('div').remove();
+            })
         })
+
     })
 
 
@@ -90,9 +112,10 @@ $(document).ready(function () {
     $(".column").click(function(){
         $('.imageGallery').css('flex-direction', 'column')
         $('.gallery').css({'width':'100%', 'height':'auto'})
-
     })
 
+
+    //SUPPRIMER UNE IMAGE OU ARTICLE QUI A ETE AJOUTE
 
    
 

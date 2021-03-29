@@ -83,7 +83,7 @@ h1, p{
     justify-content: flex-start;
 }
 
-.control a img, .control img{
+.control a img, .control img, .control{
     height: 50px;
     width: auto;
     padding: 20px;
@@ -218,4 +218,19 @@ form input{
     padding: 8px 0;
     margin: 10px 0;
     border-radius: 5px;
+}
+
+button:hover, .control:hover, .delete:hover{
+    cursor:pointer;
+}
+
+.deletePosition{
+    position: relative;
+    overflow: hidden;
+}
+
+.delete{
+    position:absolute;
+    top:0;
+    right: 0;
 }
