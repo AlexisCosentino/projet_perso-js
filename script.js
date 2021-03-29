@@ -46,17 +46,57 @@ $(document).ready(function () {
         }
     })
 
-});
 
-/*
-$(".dropbtn").click(function () {
+    //FORMULAIRE DYNAMIQUE
 
-        let click = document.getElementById("list-items");
-        if (click.style.display === "none") {
-            click.style.display = "block";
-        } else {
-            click.style.display = "none";
-        }
+    $(".formbtn").click(function(){
+        let datas = [$(".firstform").val(), $(".secondform").val(), $(".thirdform").val()]
+        console.log(datas[0])
+        $("<article class='rick'>\
+        <h3>"+ datas[0] +"</h3>\
+        <p>" + datas[3] + "</p>\
+        <p> Auteur : " + datas[2] + "</p>\
+        </article>\
+        ").insertAfter(("form"));
     })
-    */
+
+
+    //AJOUT D'IMAGE DANS LA GALERIE
+    $(".addImage").click(function(){
+        $("<article>\
+        <form>\
+        <h3>Ajoutez votre image ! </h3>\
+        <label for='url'>Tapez l'URL de l'image: </label>\
+        <input type='text' name='url' placeholder='URL' class='imageUrl'>\
+        <button type='button' class='addImage'>Publier</button>\
+        </form>\
+        </article>\
+        ").insertBefore(('.imageGallery'));
+
+        $(".addImage").click(function(){
+            let url= $('.imageUrl').val()
+            console.log(url);
+            $("<img src='"+ url +"' class='gallery'>").appendTo((".imageGallery"));
+        })
+    })
+
+
+    // PLACEMENT D'IMAGE EN MOSAIQUE OU COLONNE
+
+    $(".mosaic").click(function(){
+        $('.imageGallery').css('flex-direction', 'row')
+        $('.gallery').css({ 'width':'450px', 'height':'300px'})
+    })
+    $(".column").click(function(){
+        $('.imageGallery').css('flex-direction', 'column')
+        $('.gallery').css({'width':'100%', 'height':'auto'})
+
+    })
+
+
+   
+
+
+
+});
 
