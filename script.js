@@ -61,6 +61,40 @@ $(document).ready(function () {
     })
 
 
+    //AJOUT D'IMAGE DANS LA GALERIE
+    $(".addImage").click(function(){
+        $("<article>\
+        <form>\
+        <h3>Ajoutez votre image ! </h3>\
+        <label for='url'>Tapez l'URL de l'image: </label>\
+        <input type='text' name='url' placeholder='URL' class='imageUrl'>\
+        <button type='button' class='addImage'>Publier</button>\
+        </form>\
+        </article>\
+        ").insertBefore(('.imageGallery'));
+
+        $(".addImage").click(function(){
+            let url= $('.imageUrl').val()
+            console.log(url);
+            $("<img src='"+ url +"' class='gallery'>").appendTo((".imageGallery"));
+        })
+    })
+
+
+    // PLACEMENT D'IMAGE EN MOSAIQUE OU COLONNE
+
+    $(".mosaic").click(function(){
+        $('.imageGallery').css('flex-direction', 'row')
+        $('.gallery').css({ 'width':'450px', 'height':'300px'})
+    })
+    $(".column").click(function(){
+        $('.imageGallery').css('flex-direction', 'column')
+        $('.gallery').css({'width':'100%', 'height':'auto'})
+
+    })
+
+
+   
 
 
 
