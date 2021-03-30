@@ -121,11 +121,13 @@ h1, p{
 }
 
 .gameItem{
-    width: 150px;
+    width: 300px;
     height: auto;
-    border-radius: 100%;
     padding: 50px;
-    background-color:thistle;
+}
+.gameItem:hover{
+    cursor: pointer;
+    backdrop-filter: blur(5px);
 }
 
 
