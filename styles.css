@@ -196,13 +196,6 @@ form{
     flex-direction: column;
 }
 
-.firstform{
-    width: 500px;
-}
-
-.secondform{
-    width: 800px;
-}
 
 /* FORMULAIRE CSS !!! */
 
@@ -236,3 +229,44 @@ button:hover, .control:hover, .delete:hover{
     top:0;
     right: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .logo{
+        padding-right: 20px ;
+        height: auto;
+        width: 150px;    
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .gallery{
+        width: 30%;
+        height: auto;
+    }
+  }
+
+/*$.getJSON("https://api.mocki.io/v1/a95d1be0", function (response) {
+*/
+
+.memorick{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.memory-card{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.backface, .frontface {
+    width: 340px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 5px;
+    background: #1C7CCC;
+  }

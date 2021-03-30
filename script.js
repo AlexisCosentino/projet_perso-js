@@ -169,8 +169,8 @@ $(document).ready(function () {
                     computerScore++;
                     $(".computerScore").text(computerScore);
                 }
-            } else if ( player == 'cornichon'){
-                if (computer == 'dog'){
+            } else if (player == 'cornichon') {
+                if (computer == 'dog') {
                     $(".answer").text('Tu as gagné mon gars !');
                     $('.gif').attr('src', 'img/win.gif')
                     playerScore++
@@ -181,8 +181,8 @@ $(document).ready(function () {
                     computerScore++;
                     $(".computerScore").text(computerScore);
                 }
-            } else if (player == 'dog'){
-                if (computer == 'rick'){
+            } else if (player == 'dog') {
+                if (computer == 'rick') {
                     $(".answer").text('Tu as gagné mon gars !');
                     $('.gif').attr('src', 'img/win.gif')
                     playerScore++
@@ -204,12 +204,55 @@ $(document).ready(function () {
         let computerChoice = getComputerChoice()
         console.log(playerChoice)
         console.log(computerChoice)
-        $(".yourPlay").text("Vous avez joué "+playerChoice+" et le aliens ont joué "+computerChoice+" !")
+        $(".yourPlay").text("Vous avez joué " + playerChoice + " et le aliens ont joué " + computerChoice + " !")
         findWinner(playerChoice, computerChoice)
     })
 
+    //FIN DU JEU CHIFOURICK///////
 
 
+
+
+    // JEU MEMORICK
+
+
+
+    let cards = new Array()
+
+    $.getJSON("https://api.mocki.io/v1/995e2191", function (response) {
+        response.forEach(function (item) {
+            console.log(item.img);
+            cards.push(item.img);
+        })
+
+        console.log(cards)
+        let shuffled1 = shuffle(cards)
+
+        shuffled1.forEach(function (item) {
+            $("<div class='memory-card'>\
+            <img src='" + item + "' alt='game' class='frontface'>\
+            <img src='https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtuJsCJezdhm0DRmP3cDTVUDZdrKn_uzS5IrMQeT-3VlK52LJT' alt='game' class='backface'>\
+            </div>").appendTo($(".memorick"))
+        })
+
+        
+
+
+    });
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    }
 
 
 });
