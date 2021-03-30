@@ -204,6 +204,7 @@ $(document).ready(function () {
         let computerChoice = getComputerChoice()
         console.log(playerChoice)
         console.log(computerChoice)
+        $(".yourPlay").text("Vous avez joué "+playerChoice+" et le aliens ont joué "+computerChoice+" !")
         findWinner(playerChoice, computerChoice)
     })
 
