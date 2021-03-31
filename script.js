@@ -236,7 +236,9 @@ $(document).ready(function () {
 
         let chosenCard = []
         let cardsRemain = shuffled1.length
+        let score = shuffled1.length - 3
 
+        $('.playerScoreMemo').text("Tentatives restantes : " + score)
 
         $(".frontface").click(function () {
             $(this).children().css('opacity', '0')              //Montre l'image choisi
@@ -255,12 +257,17 @@ $(document).ready(function () {
                     }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
                 }
                 chosenCard = []
+                score -= 1
+                $('.playerScoreMemo').text("Tentatives restantes : " + score)
             }
             console.log(cardsRemain)
-            
-        if (cardsRemain == 0){
-            $("<h1 class='text-center'>Putain Morty tu as gagné !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
-        }
+
+            if (score == 0){
+                $("<h1 class='text-center'>Putain Morty t'a perdu, t'es vraiment trop nul !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
+            }
+            if (cardsRemain == 0) {
+                $("<h1 class='text-center'>Tu as gagné Morty, tu es un génie !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
+            }
 
         })
 
