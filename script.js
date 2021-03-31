@@ -226,15 +226,6 @@ $(document).ready(function () {
 
         let shuffled1 = shuffle(cards)
 
-        /*
-        shuffled1.forEach(function (item) {
-            $("<div class='memory-card'>\
-            <img src='" + item + "' alt='game' class='frontface'>\
-            <img src='https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtuJsCJezdhm0DRmP3cDTVUDZdrKn_uzS5IrMQeT-3VlK52LJT' alt='game' class='backface'>\
-            </div>").appendTo($(".memorick"))
-        }) 
-        */
-
 
 
         shuffled1.forEach(function (item) {
@@ -246,24 +237,29 @@ $(document).ready(function () {
         let chosenCard = []
         let cardsRemain = shuffled1.length
 
-            
+
         $(".frontface").click(function () {
             $(this).children().css('opacity', '0')              //Montre l'image choisi
             value = $(this).css('background-image')             //Récupère l'url de l'image pour la comparer ensuite
             $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
-
-            if (chosenCard.length < 2) {                        //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
-                chosenCard.push(value)                           //Envoi la valeur de l'url dans le tableau
+            chosenCard.push(value)                              //Envoi la valeur de l'url dans le tableau
+            if (chosenCard.length == 2) {                       //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
                 if (chosenCard[0] == chosenCard[1]) {           //Si les 2 valeurs correspondent
                     $(".found").children().remove()             //Je supprime la div avec le background noir
                     cardsRemain -= 2                            //J'enlève les 2 cartes qui viennent d'être trouvé au compteur de carte restante
                 } else {
-
+                    $(this).removeClass('found')                //Je supprime la classe found car non trouvé
+                    setTimeout(function () {
+                        $(".backface").css('opacity', '1')
+                    }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
                 }
-            } else {
-                $(".backface").css('opacity', '1')              //Si le cartes ne correspondent pas, les images se recachent.
+                chosenCard = []
             }
             console.log(cardsRemain)
+            
+        if (cardsRemain == 0){
+            $("<h1>Putain Morty tu as gagné !</h1>").appendTo($(".winMessage"))
+        }
 
         })
 
