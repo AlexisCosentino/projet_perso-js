@@ -254,6 +254,21 @@ button:hover, .control:hover, .delete:hover{
     justify-content: space-between;
 }
 
+.frontface{
+    width: 200px;
+    height: 300px;
+    position: relative;
+    background-size: cover;
+    cursor: pointer;
+    
+}
+.backface{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/*
+
 .memory-card{
     position: relative;
     display: flex;
@@ -270,3 +285,5 @@ button:hover, .control:hover, .delete:hover{
     border-radius: 5px;
     background: #1C7CCC;
   }
+
+*/

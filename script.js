@@ -221,21 +221,53 @@ $(document).ready(function () {
 
     $.getJSON("https://api.mocki.io/v1/995e2191", function (response) {
         response.forEach(function (item) {
-            console.log(item.img);
             cards.push(item.img);
         })
 
-        console.log(cards)
         let shuffled1 = shuffle(cards)
 
+        /*
         shuffled1.forEach(function (item) {
             $("<div class='memory-card'>\
             <img src='" + item + "' alt='game' class='frontface'>\
             <img src='https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtuJsCJezdhm0DRmP3cDTVUDZdrKn_uzS5IrMQeT-3VlK52LJT' alt='game' class='backface'>\
             </div>").appendTo($(".memorick"))
+        }) 
+        */
+
+
+
+        shuffled1.forEach(function (item) {
+            $("<div class='frontface' style='background-image:url(" + item + ")'>\
+            <div class='backface'>\
+            </div></div>").appendTo($(".memorick"));
         })
 
-        
+        let chosenCard = []
+        let cardsRemain = shuffled1.length
+
+            
+        $(".frontface").click(function () {
+            $(this).children().css('opacity', '0')              //Montre l'image choisi
+            value = $(this).css('background-image')             //Récupère l'url de l'image pour la comparer ensuite
+            $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
+
+            if (chosenCard.length < 2) {                        //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
+                chosenCard.push(value)                           //Envoi la valeur de l'url dans le tableau
+                if (chosenCard[0] == chosenCard[1]) {           //Si les 2 valeurs correspondent
+                    $(".found").children().remove()             //Je supprime la div avec le background noir
+                    cardsRemain -= 2                            //J'enlève les 2 cartes qui viennent d'être trouvé au compteur de carte restante
+                } else {
+
+                }
+            } else {
+                $(".backface").css('opacity', '1')              //Si le cartes ne correspondent pas, les images se recachent.
+            }
+            console.log(cardsRemain)
+
+        })
+
+
 
 
     });
@@ -253,7 +285,6 @@ $(document).ready(function () {
         }
         return array;
     }
-
 
 });
 
