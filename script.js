@@ -241,14 +241,15 @@ $(document).ready(function () {
         $(".frontface").click(function () {
             $(this).children().css('opacity', '0')              //Montre l'image choisi
             value = $(this).css('background-image')             //Récupère l'url de l'image pour la comparer ensuite
-            $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
             chosenCard.push(value)                              //Envoi la valeur de l'url dans le tableau
+            $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
             if (chosenCard.length == 2) {                       //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
                 if (chosenCard[0] == chosenCard[1]) {           //Si les 2 valeurs correspondent
                     $(".found").children().remove()             //Je supprime la div avec le background noir
                     cardsRemain -= 2                            //J'enlève les 2 cartes qui viennent d'être trouvé au compteur de carte restante
                 } else {
-                    $(this).removeClass('found')                //Je supprime la classe found car non trouvé
+                    $(".found").removeClass('found')                //Je supprime la classe found car non trouvé
+
                     setTimeout(function () {
                         $(".backface").css('opacity', '1')
                     }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
@@ -258,7 +259,7 @@ $(document).ready(function () {
             console.log(cardsRemain)
             
         if (cardsRemain == 0){
-            $("<h1>Putain Morty tu as gagné !</h1>").appendTo($(".winMessage"))
+            $("<h1 class='text-center'>Putain Morty tu as gagné !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
         }
 
         })
