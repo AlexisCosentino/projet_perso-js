@@ -236,7 +236,7 @@ $(document).ready(function () {
 
         let chosenCard = []
         let cardsRemain = shuffled1.length
-        let score = shuffled1.length - 3
+        let score = shuffled1.length
 
         $('.playerScoreMemo').text("Tentatives restantes : " + score)
 
@@ -256,9 +256,9 @@ $(document).ready(function () {
                         $(".backface").css('opacity', '1')
                     }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
                 }
-                chosenCard = []
-                score -= 1
-                $('.playerScoreMemo').text("Tentatives restantes : " + score)
+                chosenCard = []                                 //Je vide le tableau pour le prochain tour
+                score -= 1                                      //J'enlève une tentative.
+                $('.playerScoreMemo').text("Tentatives restantes : " + score)   //J'affiche le score
             }
             console.log(cardsRemain)
 
