@@ -203,7 +203,7 @@ $(document).ready(function () {
     //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////
 
     function levelDifficult(){
-        $.getJSON("https://www.json-generator.com/api/json/get/bUbTQLLbEy?indent=2", function (response) {
+        $.getJSON("https://api.mocki.io/v1/dd1ade66", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
@@ -264,7 +264,7 @@ $(document).ready(function () {
     //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////
     function levelEasy() {
 
-        $.getJSON("https://www.json-generator.com/api/json/get/coQunksAeq?indent=2", function (response) {
+        $.getJSON("https://api.mocki.io/v1/02d4270f", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
