@@ -197,14 +197,13 @@ $(document).ready(function () {
     // JEU MEMORICK   // JEU MEMORICK   // JEU MEMORICK     // JEU MEMORICK    // JEU MEMORICK  // JEU MEMORICK // JEU MEMORICK // JEU MEMORICK // JEU MEMORICK // JEU MEMORICK
 
 
-
-
+    
 
 
     //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////
 
     function levelDifficult(){
-        $.getJSON("https://api.mocki.io/v1/6d9ceb00", function (response) {
+        $.getJSON("http://www.json-generator.com/api/json/get/bUbTQLLbEy?indent=2", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
@@ -265,7 +264,7 @@ $(document).ready(function () {
     //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////
     function levelEasy() {
 
-        $.getJSON("https://api.mocki.io/v1/02d4270f", function (response) {
+        $.getJSON("http://www.json-generator.com/api/json/get/coQunksAeq?indent=2", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
@@ -361,5 +360,5 @@ $(document).ready(function () {
 
 
 
-//old API easy          https://api.mocki.io/v1/995e2191
-//OLD API difficult     https://api.mocki.io/v1/3b132ea5
+//old API easy          https://api.mocki.io/v1/995e2191    https://api.mocki.io/v1/02d4270f
+//OLD API difficult     https://api.mocki.io/v1/3b132ea5    https://api.mocki.io/v1/6d9ceb00
