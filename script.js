@@ -116,7 +116,7 @@ $(document).ready(function () {
 
 
 
-    //LE JEU DU SHIFOURICK !!!!
+    //LE JEU DU SHIFOURICK !!!! //LE JEU DU SHIFOURICK !!!! //LE JEU DU SHIFOURICK !!!! //LE JEU DU SHIFOURICK !!!! //LE JEU DU SHIFOURICK !!!! //LE JEU DU SHIFOURICK !!!! //LE JEU DU SHIFOURICK !!!!
 
 
     let playerScore = 0;
@@ -131,27 +131,8 @@ $(document).ready(function () {
         return choice
     }
 
-    /*
-    function findWinner(player, computer){
-        if (player == 'rick' && computer == 'cornichon' || player == 'cornichon' && computer == 'dog' || player == 'dog' && computer == 'rick'){
-            $(".answer").text('Tu as gagné mon gars !');
-            $('.gif').attr('src', 'img/win.gif')
-            playerScore++
-            $(".playerScore").text(playerScore);
-        }
-        else if (player === computer){
-            $(".answer").text("Merde c'est égalité..");
-            $('.gif').attr('src', 'img/tied.gif')
-        } else {
-            $(".anwser").text("Putain comme t'es nul Morty, tu as perdu !");
-            $('.gif').attr('src', 'img/lose.gif')
-            computerScore++;
-            $(".computerScore").text(computerScore);
 
-        }
-    }
 
-    */
     function findWinner(player, computer) {
         if (player == computer) {
             $(".answer").text("Merde c'est égalité..");
@@ -208,73 +189,157 @@ $(document).ready(function () {
         findWinner(playerChoice, computerChoice)
     })
 
-    //FIN DU JEU CHIFOURICK///////
+    //FIN DU JEU CHIFOURICK///////   //FIN DU JEU CHIFOURICK///////    //FIN DU JEU CHIFOURICK///////  //FIN DU JEU CHIFOURICK///////   //FIN DU JEU CHIFOURICK///////  //FIN DU JEU CHIFOURICK///////
 
 
 
 
-    // JEU MEMORICK
+    // JEU MEMORICK   // JEU MEMORICK   // JEU MEMORICK     // JEU MEMORICK    // JEU MEMORICK  // JEU MEMORICK // JEU MEMORICK // JEU MEMORICK // JEU MEMORICK // JEU MEMORICK
 
 
 
-    let cards = new Array()
-
-    $.getJSON("https://api.mocki.io/v1/995e2191", function (response) {
-        response.forEach(function (item) {
-            cards.push(item.img);
-        })
-
-        let shuffled1 = shuffle(cards)
 
 
 
-        shuffled1.forEach(function (item) {
-            $("<div class='frontface' style='background-image:url(" + item + ")'>\
+    //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////
+
+    function levelDifficult(){
+        $.getJSON("https://api.mocki.io/v1/3b132ea5", function (response) {
+            response.forEach(function (item) {
+                cards.push(item.img);
+            })
+
+            let shuffled1 = shuffle(cards)
+
+            $("<div class='memorick'></div>").appendTo($(".plateau"));
+
+
+            shuffled1.forEach(function (item) {
+                $("<div class='frontface' style='background-image:url(" + item + ")'>\
             <div class='backface'>\
             </div></div>").appendTo($(".memorick"));
-        })
+            })
 
-        let chosenCard = []
-        let cardsRemain = shuffled1.length
-        let score = shuffled1.length
+            let chosenCard = []
+            let cardsRemain = shuffled1.length
+            let score = shuffled1.length + 5
 
-        $('.playerScoreMemo').text("Tentatives restantes : " + score)
+            $('.playerScoreMemo').text("Tentatives restantes : " + score)
 
-        $(".frontface").click(function () {
-            $(this).children().css('opacity', '0')              //Montre l'image choisi
-            value = $(this).css('background-image')             //Récupère l'url de l'image pour la comparer ensuite
-            chosenCard.push(value)                              //Envoi la valeur de l'url dans le tableau
-            $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
-            if (chosenCard.length == 2) {                       //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
-                if (chosenCard[0] == chosenCard[1]) {           //Si les 2 valeurs correspondent
-                    $(".found").children().remove()             //Je supprime la div avec le background noir
-                    cardsRemain -= 2                            //J'enlève les 2 cartes qui viennent d'être trouvé au compteur de carte restante
-                } else {
-                    $(".found").removeClass('found')                //Je supprime la classe found car non trouvé
+            $(".frontface").click(function () {
+                $(this).children().css('opacity', '0')              //Montre l'image choisi
+                value = $(this).css('background-image')             //Récupère l'url de l'image pour la comparer ensuite
+                chosenCard.push(value)                              //Envoi la valeur de l'url dans le tableau
+                $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
+                if (chosenCard.length == 2) {                       //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
+                    if (chosenCard[0] == chosenCard[1]) {           //Si les 2 valeurs correspondent
+                        $(".found").children().remove()             //Je supprime la div avec le background noir
+                        cardsRemain -= 2                            //J'enlève les 2 cartes qui viennent d'être trouvé au compteur de carte restante
+                    } else {
+                        $(".found").removeClass('found')                //Je supprime la classe found car non trouvé
 
-                    setTimeout(function () {
-                        $(".backface").css('opacity', '1')
-                    }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
+                        setTimeout(function () {
+                            $(".backface").css('opacity', '1')
+                        }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
+                    }
+                    chosenCard = []                                 //Je vide le tableau pour le prochain tour
+                    score -= 1                                      //J'enlève une tentative.
+                    $('.playerScoreMemo').text("Tentatives restantes : " + score)   //J'affiche le score
                 }
-                chosenCard = []                                 //Je vide le tableau pour le prochain tour
-                score -= 1                                      //J'enlève une tentative.
-                $('.playerScoreMemo').text("Tentatives restantes : " + score)   //J'affiche le score
-            }
-            console.log(cardsRemain)
+                console.log(cardsRemain)
 
-            if (score == 0){
-                $("<h1 class='text-center'>Putain Morty t'a perdu, t'es vraiment trop nul !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
-            }
-            if (cardsRemain == 0) {
-                $("<h1 class='text-center'>Tu as gagné Morty, tu es un génie !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
-            }
+                if (score == 0) {
+                    $("<h1 class='text-center'>Putain Morty t'a perdu, t'es vraiment trop nul !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
+                }
+                if (cardsRemain == 0) {
+                    $("<h1 class='text-center'>Tu as gagné Morty, tu es un génie !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
+                }
+
+
+            })
+
+        })
+    }
+
+
+    //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////
+    function levelEasy() {
+
+        $.getJSON("https://api.mocki.io/v1/995e2191", function (response) {
+            response.forEach(function (item) {
+                cards.push(item.img);
+            })
+
+            let shuffled1 = shuffle(cards)
+
+            $("<div class='memorick'></div>").appendTo($(".plateau"));
+
+            shuffled1.forEach(function (item) {
+                $("<div class='frontface' style='background-image:url(" + item + ")'>\
+            <div class='backface'>\
+            </div></div>").appendTo($(".memorick"));
+            })
+
+            let chosenCard = []
+            let cardsRemain = shuffled1.length
+            let score = shuffled1.length
+
+            $('.playerScoreMemo').text("Tentatives restantes : " + score)
+
+            $(".frontface").click(function () {
+                $(this).children().css('opacity', '0')              //Montre l'image choisi
+                value = $(this).css('background-image')             //Récupère l'url de l'image pour la comparer ensuite
+                chosenCard.push(value)                              //Envoi la valeur de l'url dans le tableau
+                $(this).addClass('found');                          //J'ajoute une classe pour le selectioner
+                if (chosenCard.length == 2) {                       //Le tableau st initialisé à zéro et tant qu'il y a pas 2 cartes,
+                    if (chosenCard[0] == chosenCard[1]) {           //Si les 2 valeurs correspondent
+                        $(".found").children().remove()             //Je supprime la div avec le background noir
+                        cardsRemain -= 2                            //J'enlève les 2 cartes qui viennent d'être trouvé au compteur de carte restante
+                    } else {
+                        $(".found").removeClass('found')                //Je supprime la classe found car non trouvé
+
+                        setTimeout(function () {
+                            $(".backface").css('opacity', '1')
+                        }, 800)                                     //Si le cartes ne correspondent pas, les images se recachent avec un petit délais.
+                    }
+                    chosenCard = []                                 //Je vide le tableau pour le prochain tour
+                    score -= 1                                      //J'enlève une tentative.
+                    $('.playerScoreMemo').text("Tentatives restantes : " + score)   //J'affiche le score
+                }
+                console.log(cardsRemain)
+
+                if (score == 0) {
+                    $("<h1 class='text-center'>Putain Morty t'a perdu, t'es vraiment trop nul !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
+                }
+                if (cardsRemain == 0) {
+                    $("<h1 class='text-center'>Tu as gagné Morty, tu es un génie !</h1><form><button type='submit' class='text-center'>REPLAY</button></form>").appendTo($(".winMessage"))
+                }
+
+            })
 
         })
 
+    }
 
+    let cards = new Array()
+    let difficulty = $(".difficulty").val()
 
+    levelEasy()
+    $(".difficulty").change(function () {
+        difficulty = $(".difficulty").val()
+        removeLevel()
+        if (difficulty == 'easy') {
+            cards = []
+            levelEasy()
+        } else {
+            cards = []
+            levelDifficult()
+        }
+    })
 
-    });
+    function removeLevel(){
+        $(".memorick").remove()
+    }
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -289,6 +354,8 @@ $(document).ready(function () {
         }
         return array;
     }
+
+    //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK   //FIN DU MEMORICK
 
 });
 

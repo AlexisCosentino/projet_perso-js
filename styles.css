@@ -110,7 +110,7 @@ h1, p{
 .borderScore{
     display: flex;
     justify-content: space-around;
-    border: solid red 2px;
+    border: solid red 5px;
     width: 150px;
 }
 
@@ -261,30 +261,28 @@ button:hover, .control:hover, .delete:hover{
     background-size: cover;
     cursor: pointer;
     margin: 10px;
+    border-radius: 5px;
     
 }
 .backface{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 1);
-}
-/*
-
-.memory-card{
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-
-
-.backface, .frontface {
-    width: 340px;
-    height: 450px;
-    padding: 20px;
+    background-image: url('img/backface.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: 50%;
     border-radius: 5px;
-    background: #1C7CCC;
-  }
 
-*/
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+form select{
+    border-radius: 5px;
+    width: 90px;
+    padding: 5px 10px;
+}

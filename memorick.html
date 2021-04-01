@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Accueil</title>
+    <title>MémoRick</title>
 </head>
 
 <body>
@@ -36,17 +36,26 @@
         <h1 class="text-center">Jeux du MémoRick</h1>
         <article>
             <p>Règle : Retrouvez les images correspondantes !</p>
+
+            <form>
+                <label for="difficulty">Choisissez la difficulté : </label>
+                <select name="difficulty" class="difficulty">
+                    <option value="easy">Facile</option>
+                    <option value="difficult">Difficile</option>
+                </select>
+            </form>
+
+
         </article>
         <div class="winMessage">
         </div>
         <div class="score">
             <div class="borderScore">
-                <h3 class="playerScoreMemo"></h3>
+                <h3 class="playerScoreMemo text-center"></h3>
             </div>
         </div>
 
-
-        <div class="memorick">
+        <div class="plateau">
             
         </div>
 
@@ -56,16 +65,15 @@
 
 
 
+    </main>
 
-</main>
+    <footer>
+        <p> Copyright 2021 - Alexis Cosentino</p>
+    </footer>
 
-<footer>
-    <p> Copyright 2021 - Alexis Cosentino</p>
-</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-<script src="script.js" type="text/javascript" language="javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="script.js" type="text/javascript" language="javascript"></script>
 
 </body>
 
