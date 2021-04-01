@@ -264,7 +264,7 @@ $(document).ready(function () {
     //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////
     function levelEasy() {
 
-        $.getJSON("https://api.mocki.io/v1/02d4270f", function (response) {
+        $.getJSON("https://api.mocki.io/v1/779d986f", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
