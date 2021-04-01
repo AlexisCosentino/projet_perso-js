@@ -204,7 +204,7 @@ $(document).ready(function () {
     //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////   //LEVEL HARD///////////////////////////
 
     function levelDifficult(){
-        $.getJSON("https://api.mocki.io/v1/3b132ea5", function (response) {
+        $.getJSON("https://api.mocki.io/v1/6d9ceb00", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
@@ -265,7 +265,7 @@ $(document).ready(function () {
     //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////   //LEVEL EASY//////////////////////////////
     function levelEasy() {
 
-        $.getJSON("https://api.mocki.io/v1/995e2191", function (response) {
+        $.getJSON("https://api.mocki.io/v1/02d4270f", function (response) {
             response.forEach(function (item) {
                 cards.push(item.img);
             })
@@ -359,3 +359,7 @@ $(document).ready(function () {
 
 });
 
+
+
+//old API easy          https://api.mocki.io/v1/995e2191
+//OLD API difficult     https://api.mocki.io/v1/3b132ea5
